@@ -20,15 +20,19 @@
     nix-your-shell
   ];
   programs.zsh = {
+    enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
       theme = "af-magic";
     };
-    # Shell aliases don't seem to be working right now
     shellAliases = {
       rebuild = "darwin-rebuild switch --flake ~/.config/nix-darwin";
     };
+    # Nix-your-shell
+    initExtra = ''
+      nix-your-shell zsh | source /dev/stdin
+    '';
   };
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
