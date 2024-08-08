@@ -1,19 +1,26 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
+  home.packages = let hPkgs = pkgs.haskell.packages."ghc948";
+  in with pkgs; [
     # Editor
     neovim
     # Security
     gnupg
     pass
     # Haskell Development
-    haskellPackages.cabal-install
-    haskellPackages.hoogle
-    haskellPackages.stack
+    hPkgs.ghc
+    hPkgs.cabal-install
+    hPkgs.hoogle
+    hPkgs.stack
+    hPkgs.haskell-language-server
+    hPkgs.ghcid
+    hPkgs.ormolu
+    hPkgs.implicit-hie
     # TypeScript Development
     nodejs_20
     nodePackages.typescript-language-server
     # Nix Development
     nil
+    nixfmt
     # Lua Development
     lua-language-server
     # Shell

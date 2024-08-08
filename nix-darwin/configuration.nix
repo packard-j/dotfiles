@@ -30,8 +30,7 @@
   programs.zsh.enable = true;
   programs.nix-index.enable = true;
 
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     recursive
     (nerdfonts.override { fonts = ["JetBrainsMono" ]; })
   ];
