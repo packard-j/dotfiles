@@ -7,10 +7,10 @@
     gnupg
     pass
     # Haskell Development
+    stack
     hPkgs.ghc
     hPkgs.cabal-install
     hPkgs.hoogle
-    hPkgs.stack
     hPkgs.haskell-language-server
     hPkgs.ghcid
     hPkgs.ormolu
@@ -41,6 +41,6 @@
       nix-your-shell zsh | source /dev/stdin
     '';
   };
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 }
