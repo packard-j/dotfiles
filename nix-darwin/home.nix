@@ -1,32 +1,36 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages =
-    let hPkgs = pkgs.haskell.packages."ghc98";
-  in with pkgs; [
-    # Editor
-    neovim
-    # Security
-    gnupg
-    pass
-    # Haskell Development
-    stack
-    hPkgs.ghc
-    hPkgs.cabal-install
-    hPkgs.hoogle
-    hPkgs.haskell-language-server
-    hPkgs.ghcid
-    hPkgs.ormolu
-    hPkgs.implicit-hie
-    # TypeScript Development
-    nodejs_20
-    nodePackages.typescript-language-server
-    # Nix Development
-    nil
-    nixfmt-rfc-style
-    # Lua Development
-    lua-language-server
-    # Shell
-    nix-your-shell
-  ];
+    let
+      hPkgs = pkgs.haskell.packages."ghc98";
+    in
+    with pkgs;
+    [
+      # Editor
+      neovim
+      # Security
+      gnupg
+      pass
+      # Haskell Development
+      stack
+      hPkgs.ghc
+      hPkgs.cabal-install
+      hPkgs.hoogle
+      hPkgs.haskell-language-server
+      hPkgs.ghcid
+      hPkgs.ormolu
+      hPkgs.implicit-hie
+      # TypeScript Development
+      nodejs_20
+      nodePackages.typescript-language-server
+      # Nix Development
+      nil
+      nixfmt-rfc-style
+      # Lua Development
+      lua-language-server
+      # Shell
+      nix-your-shell
+    ];
   programs.zsh = {
     enable = true;
     oh-my-zsh = {

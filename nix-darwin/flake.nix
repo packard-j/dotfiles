@@ -9,17 +9,26 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, darwin, ... }: {
-    darwinConfigurations."Jamess-MacBook-Pro" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        ./configuration.nix
-        home-manager.darwinModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.jamespackard = import ./home.nix;
-        }
-      ];
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      darwin,
+      ...
+    }:
+    {
+      darwinConfigurations."Jamess-MacBook-Pro" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jamespackard = import ./home.nix;
+          }
+        ];
+      };
     };
-  };  
 }
