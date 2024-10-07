@@ -1,5 +1,6 @@
 { pkgs, ... }: {
-  home.packages = let hPkgs = pkgs.haskell.packages."ghc948";
+  home.packages =
+    let hPkgs = pkgs.haskell.packages."ghc98";
   in with pkgs; [
     # Editor
     neovim
