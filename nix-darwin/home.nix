@@ -21,7 +21,7 @@
     nodePackages.typescript-language-server
     # Nix Development
     nil
-    nixfmt
+    nixfmt-rfc-style
     # Lua Development
     lua-language-server
     # Shell
