@@ -143,7 +143,15 @@ require('lspconfig').hls.setup({
   }
 })
 require('lspconfig').clangd.setup{}
-require('lspconfig').nil_ls.setup{}
+require('lspconfig').nil_ls.setup{
+  settings = {
+    ['nil'] = {
+      formatting = {
+        command = { 'nixfmt' }
+      }
+    }
+  }
+}
 require('lspconfig').lua_ls.setup{}
 
 require('gitsigns').setup()
