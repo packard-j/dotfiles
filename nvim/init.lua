@@ -36,6 +36,22 @@ require('lazy').setup({
       {'nvim-treesitter/nvim-treesitter'}
     }
   },
+  -- Keybinds
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  },
   -- LSP Support
   {
     'VonHeikemen/lsp-zero.nvim',
