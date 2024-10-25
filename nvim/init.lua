@@ -183,7 +183,8 @@ wk.add({
   { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
   { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags", mode = "n" },
   { "<leader>fs", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "LSP Workspace Symbols", mode = "n" },
-  { "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits", mode = "n" }
+  { "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits", mode = "n" },
+  { "<leader>t", "<cmd>Neotree<cr>", desc = "File Tree", mode = "n" }
 })
 
 -- Options
@@ -195,4 +196,6 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Startup
-vim.cmd "Neotree"
+if next(vim.fn.argv()) == nil then
+  vim.cmd "Neotree"
+end
