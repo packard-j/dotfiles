@@ -175,13 +175,16 @@ require('gitsigns').setup()
 require("telescope").setup {}
 
 -- Keybinds
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
-vim.keymap.set('n', '<leader>fs', telescope.lsp_workspace_symbols, {})
-vim.keymap.set('n', '<leader>fc', telescope.git_commits, {})
+local wk = require('which-key')
+wk.add({
+  { "<leader>f", group = "find" },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
+  { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", mode = "n" },
+  { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
+  { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags", mode = "n" },
+  { "<leader>fs", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "LSP Workspace Symbols", mode = "n" },
+  { "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits", mode = "n" }
+})
 
 -- Options
 vim.opt.termguicolors = true
