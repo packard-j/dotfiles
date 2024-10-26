@@ -30,6 +30,7 @@
       lua-language-server
       # Shell
       nix-your-shell
+      direnv
     ];
   programs.zsh = {
     enable = true;
