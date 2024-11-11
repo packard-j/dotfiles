@@ -11,6 +11,22 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
+  nix.linux-builder = {
+    enable = true;
+    ephemeral = true;
+    maxJobs = 4;
+    config = {
+      virtualisation = {
+        darwin-builder = {
+          diskSize = 40*1024;
+          memorySize = 8*1024;
+        };
+        cores = 6;
+      };
+    };
+  };
+  nix.settings.trusted-users = [ "@admin" ];
+
   # Set Git commit hash for darwin-version.
   # system.configurationRevision = self.rev or self.dirtyRev or null;
 
