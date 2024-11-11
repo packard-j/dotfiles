@@ -104,7 +104,7 @@ require('evil_lualine')
 
 require('nvim-treesitter.configs').setup({
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "haskell", "typescript", "lua", "html", "jsdoc" },
+  ensure_installed = { "haskell", "typescript", "lua", "html", "jsdoc", "racket" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -169,6 +169,7 @@ require('lspconfig').nil_ls.setup{
   }
 }
 require('lspconfig').lua_ls.setup{}
+require('lspconfig').racket_langserver.setup{}
 
 require('gitsigns').setup()
 

@@ -20,6 +20,8 @@
       hPkgs.ghcid
       hPkgs.ormolu
       hPkgs.implicit-hie
+      # Racket Development
+      racket-minimal
       # TypeScript Development
       nodejs_20
       nodePackages.typescript-language-server
