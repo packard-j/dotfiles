@@ -6,6 +6,7 @@
     in
     with pkgs;
     [
+      git
       # Editor
       neovim
       # Security
