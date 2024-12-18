@@ -33,7 +33,6 @@
       lua-language-server
       # Shell
       nix-your-shell
-      direnv
     ];
   programs.zsh = {
     enable = true;
@@ -49,6 +48,11 @@
     initExtra = ''
       nix-your-shell zsh | source /dev/stdin
     '';
+  };
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
