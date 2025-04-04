@@ -26,6 +26,9 @@
       # TypeScript Development
       nodejs_22
       nodePackages.typescript-language-server
+      # Go Development
+      go
+      gopls
       # Nix Development
       nil
       nixfmt-rfc-style
