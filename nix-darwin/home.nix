@@ -36,6 +36,8 @@
       lua-language-server
       # Shell
       nix-your-shell
+      # Kubernetes
+      kubectl
     ];
   programs.zsh = {
     enable = true;
