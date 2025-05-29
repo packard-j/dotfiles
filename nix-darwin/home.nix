@@ -3,6 +3,13 @@
   home.packages =
     let
       hPkgs = pkgs.haskell.packages."ghc98";
+      kubernetes-helm-wrapped = with pkgs; wrapHelm kubernetes-helm {
+        plugins = with pkgs.kubernetes-helmPlugins; [
+          helm-secrets
+          helm-diff
+          helm-git
+        ];
+      };
     in
     with pkgs;
     [
@@ -38,12 +45,15 @@
       nix-your-shell
       # Kubernetes
       kubectl
+      minikube
+      kubernetes-helm-wrapped
+      helmfile-wrapped
     ];
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "kubectl" ];
       theme = "af-magic";
     };
     shellAliases = {
