@@ -16,6 +16,7 @@
       git
       # Editor
       neovim
+      ripgrep
       # Security
       gnupg
       pass
