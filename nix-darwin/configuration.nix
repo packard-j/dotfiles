@@ -4,10 +4,6 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [ ];
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
-
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -18,8 +14,8 @@
     config = {
       virtualisation = {
         darwin-builder = {
-          diskSize = 40*1024;
-          memorySize = 8*1024;
+          diskSize = 40 * 1024;
+          memorySize = 8 * 1024;
         };
         cores = 6;
       };
@@ -46,7 +42,6 @@
   programs.nix-index.enable = true;
 
   fonts.packages = with pkgs; [
-    recursive
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 }
