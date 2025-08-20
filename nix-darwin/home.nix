@@ -58,10 +58,10 @@
       theme = "af-magic";
     };
     shellAliases = {
-      rebuild = "darwin-rebuild switch --flake ~/.config/nix-darwin";
+      rebuild = "~/.config/system/rebuild.sh";
     };
     # Nix-your-shell
-    initExtra = ''
+    initContent = ''
       nix-your-shell zsh | source /dev/stdin
     '';
   };
